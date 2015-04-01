@@ -1,0 +1,4 @@
+-- Login Script
+once
+ask "Please enter your name and password" name password*
+run 00_login.ahk name password*

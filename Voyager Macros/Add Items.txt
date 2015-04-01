@@ -1,0 +1,19 @@
+-- Add Items Script
+-- command syntax is: 
+-- anything after a "--" is considered a comment 
+-- each|once (once is default) -- run the commands below for each record in the current file, or the selected record (or just once) only 
+--   a script can have a "once" part followed by an "each" part followed by another "once" part, and so on. 
+--   Everything before the first once|each is effectively in its own "once" part 
+-- ask prompt param1 param2 param3... (e.g. ask "Please enter your user name and password" name password*) 
+--   parameters marked with asterisks are displayed as password fields 
+-- set var_name "value"
+--   assigns value to var_name
+-- run command_file_name param1 param2 param3...  (e.g. run login name password) 
+--   a parameter can be any variable (e.g. loaded via ask) or a function call such as: 
+--   {marc field subfield regex_match}  -- everything except "field" is optional, so {marc a} is ok, as is {marc a b}, and {marc a b c} 
+--   (if running "once" marc will use the selected record) 
+each
+run 01_search.ahk {marc "035" "a" "([\d]+)\Z"} 
+run 02_holdings.ahk {marc "050" "a"} {marc "050" "b"}
+run 03_createitem.ahk {marc "949" "a"} 
+run 04_close_all.ahk

@@ -1,0 +1,3 @@
+-- Receive Selected Item Script
+once
+run 03a_receiveitem.ahk

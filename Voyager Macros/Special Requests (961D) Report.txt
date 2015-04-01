@@ -1,0 +1,8 @@
+-- 961D Report
+each
+info {marc "245" "a"}
+report {marc "245" "a"} {marc "245" "b"}
+report {voyager "961" "d"}
+
+once
+savereport

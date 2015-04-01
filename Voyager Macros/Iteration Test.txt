@@ -1,0 +1,8 @@
+-- Test Iteration
+each
+info {marc "050" "a"}
+alert {marc "245" "a"} " " {marc "245" "b"} "," {marc "245" "c"}
+report {voyager "961" "d"}
+
+once
+savereport
